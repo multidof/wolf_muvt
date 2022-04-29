@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<launch>
+
+    <arg name="robot_name" default="spot"/>
+
+    <include file="$(find wolf_description_utils)/launch/upload.launch">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+    <node pkg="muvt_ros" type="test_node" name="test_node" output="screen">
+        <param name="dcm_config" textfile="$(find wolf_muvt)/params/dcm_config_test.yaml"/>
+        <param name="cartesio_stack" textfile="$(find wolf_muvt)/params/cartesio_stack_test.yaml"/>
+    </node>
+
+
+    <node pkg="rviz" type="rviz" name="rviz" output="screen"
+      args="-d $(find wolf_muvt)/rviz/muvt.rviz"/>
+
+</launch>

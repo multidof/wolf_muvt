@@ -1,0 +1,45 @@
+solver_options:
+    regularization: 1e-4
+    back_end: "osqp"
+
+stack:
+    - ["lf_foot", "rf_foot", "rh_foot", "lh_foot", "com"]
+    - ["waist"]
+    - ["postural"]
+
+constraints: ["JointLimits", "VelocityLimits"]
+
+JointLimits:
+    type: JointLimits
+
+VelocityLimits:
+    type: VelocityLimits
+
+lf_foot:
+    type: "Cartesian"
+    distal_link: "lf_foot"
+
+rf_foot:
+    type: "Cartesian"
+    distal_link: "rf_foot"
+
+rh_foot:
+    type: "Cartesian"
+    distal_link: "rh_foot"
+
+lh_foot:
+    type: "Cartesian"
+    distal_link: "lh_foot"
+
+com:
+    type: "Com"
+    indices: [0, 1]
+
+waist:
+    type: "Cartesian"
+    distal_link: "base_link"
+    indices: [3]
+
+postural:
+    type: "Postural"
+    lambda: 0.1
