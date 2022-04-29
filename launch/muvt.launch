@@ -8,8 +8,8 @@
     </include>
 
     <node pkg="muvt_ros" type="test_node" name="test_node" output="screen">
-        <param name="dcm_config" textfile="$(find wolf_muvt)/params/dcm_config_test.yaml"/>
-        <param name="cartesio_stack" textfile="$(find wolf_muvt)/params/cartesio_stack_test.yaml"/>
+        <param name="dcm_config" textfile="$(find wolf_muvt)/params/dcm_config.yaml"/>
+        <param name="cartesio_stack" textfile="$(find wolf_muvt)/params/cartesio_stack.yaml"/>
     </node>
 
 
